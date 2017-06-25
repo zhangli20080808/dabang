@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>打榜</title>
+	<style>
+		body{background: #ccc}
+		.db_container{margin: 0 auto;width: 92%;font-size: 0;}
+		.db_container .db_view{font-size: 14px;background: #fff;}
+		.db_container .db_view .db_time,.db_container .db_view .db_score{height: 50px;line-height: 50px;}
+		.db_container .db_view .db_time .db_left{float: left;padding-left: 20px;}
+		.db_container .db_view .db_time .db_right{float: right;padding-right: 20px;}
+		.db_container .db_view .db_record{width:495px; height:250px;margin: 10px auto}
+		.db_container .db_view .db_score .score_left{float: left;color:blue;padding-left: 20px;display: flex;width: 180px;}
+		.db_container .db_view .db_score .score_left .score_item,.db_container .db_view .db_score .rank_right .score_item{flex: 1;}
+		.db_container .db_view .db_score .score_left .score_item .img,.db_container .db_view .db_score .rank_right .score_item .img{width: 20px;height: 20px;display: inline-block;vertical-align: text-bottom;}
+		.db_container .db_view .db_score .score_left span:nth-child(2){margin-left: 8px;}
+		.db_container .db_view .db_score .score_left .score_item .num{font-size: 20px;margin-left: 6px;}
+		.db_container .db_view .db_score .rank_right{float: right;color:blue;padding-left: 20px;display: flex;width: 180px;}
+		.db_container .db_view .db_score .rank_right span:nth-child(2){margin-left: 8px;}
+		.db_container .db_view .db_score .rank_right .score_item .num{font-size: 20px;margin-left: 10px;}
+
+		.db_container .db_honer{height:200px; font-size: 14px;margin-top: 15px;background: #fff;padding: 20px}
+
+		.db_container .db_honer .db_history{position: relative}
+		.db_container .db_honer .db_history .db_tab {
+			height: 20px;
+			margin: 0;
+			padding: 0;
+			display: block;
+			width: 96px;
+			position: absolute;
+			border-radius: 20px;
+			top: 6px;
+			right: 2px;
+			list-style: none;
+			border: 1px solid blue;
+			color: blue;
+		}
+		.db_container .db_honer .db_history .db_tab li{float:left;line-height: 20px;width: 50%;text-align: center;border-radius: 20px;  }
+		.db_container .db_honer .db_history .db_tab li.now{color:#fff;background: blue}
+		.db_container .db_honer .db_history .list {}
+		.db_container .db_honer .db_history .list .content{display: none}
+		.db_container .db_honer .db_history .list .content .list_text{font-size: 14px;}
+		.db_container .db_honer .db_history .list .content .icon{font-size: 14px;margin-top: 40px;background: red;}
+		.db_container .db_honer .db_history .list .content .icon li{float: left;width: 20%;text-align: center;list-style: none;height: 110px;margin-left: 10px;margin-right: 10px;}
+		.db_container .db_honer .db_history .list .content .icon li.icon_1{background: url("slide-2.jpeg")no-repeat;background-size: 260px 350px;background-position: -20px;}
+		.db_container .db_honer .db_history .list .content .icon li.icon_2{background: url("slide-2.jpeg")no-repeat;background-size: 260px 350px;background-position: -20px;}
+		.db_container .db_honer .db_history .list .content .icon li.icon_3{background: url("slide-2.jpeg")no-repeat;background-size: 260px 350px;background-position: -20px;}
+		.db_container .db_honer .db_history .list .content .icon li.icon_4{background: url("slide-2.jpeg")no-repeat;background-size: 260px 350px;background-position: -20px;}
+		/*彩图*/
+		.db_container .db_honer .db_history .list .content .icon li.icon_11{background: url(img11.png)no-repeat;background-size: 260px 350px;background-position: -20px;}
+
+	</style>
+</head>
+<body>
+	<div class="db_container">
+		<!--打榜记录-->
+		<div class="db_view">
+			<!-- 实时打榜 -->
+			<div class="db_time">
+				<div class="db_left">
+					实时打榜处理
+                    <span></span>
+				</div>
+				<div class="db_right">
+					<span class="time">9:00</span>开始打榜
+				</div>
+			</div>
+			<div class="db_record" id="main">
+			</div>
+			<!--得分排名-->
+			<div class="db_score">
+				<div class="score_left">
+					<div class="score_item"><img src="img11.png" class="img" alt=""><span>当前得分</span></div>
+					<div class="score_item"><span class="num">280分</span></div>
+				</div>
+				<div class="rank_right">
+					<div class="score_item"><img src="img11.png" class="img" alt=""><span>当前得分</span></div>
+					<div class="score_item"><span class="num">NO.2</span></div>
+				</div>
+			</div>
+		</div>
+		<!-- 历史勋章 -->
+		<div class="db_honer">
+			<div class="db_history">
+				<ul id="db_tab" class="db_tab">
+					<li>今天</li>
+					<li>历史</li>
+				</ul>
+				<div class="list" id="list">
+					<div class="content" style="display: block" >
+						<span class="list_text">恭喜你获得以下勋章</span>
+						<ul class="icon">
+							<li class="icon_11"></li>
+							<li class="icon_2"></li>
+							<li class="icon_3"></li>
+							<li class="icon_4"></li>
+						</ul>
+					</div>
+					<div class="content">
+						<span class="list_text">历史(近15日)累计所得勋章</span>
+						<ul class="icon">
+							<li class="icon_1"></li>
+							<li class="icon_2"></li>
+							<li class="icon_3"></li>
+							<li class="icon_4"></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script src="https://cdn.bootcss.com/echarts/3.6.2/echarts.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+<script>
+    function change(tab,content){
+        var $tab =  $(tab);
+        $tab.find("li").eq(0).addClass("now");
+        $tab.find("li").on("click",function(){
+            var index = $(this).index();
+            $(this).addClass("now").siblings().removeClass("now");
+            $(content).children("div").eq(index).show().siblings().hide();
+        })
+    }
+    change("#db_tab","#list");
+</script>
+<script type="text/javascript">
+    var option = { //可以去官网上根据每个案例不同的option去写各种图形
+        title: {   //标题
+//            text: 'OP系统点击量'
+        },
+        tooltip: {   //提示框，鼠标悬浮交互时的信息提示
+//            show: true,
+            trigger: 'item'
+        },
+        legend: {    //图例，每个图表最多仅有一个图例
+        },
+        polar: [{    //极坐标
+            indicator: [{text: '计划部', max: 100},
+                {text: '市场部', max: 100},
+                {text: '政企客户部', max: 100},
+                {text: '客户服务部', max: 100},
+                {text: '铁通公司', max: 100},
+                {text: '其他', max: 100}
+            ],
+            radius: 100,
+            startAngle: 120   // 改变雷达图的旋转度数
+        }],
+
+        series: [{         // 驱动图表生成的数据内容数组，数组中每一项为一个系列的选项及数据
+            name: '总点击量',
+            type: 'radar',
+            itemStyle: {//图形样式，可设置图表内图形的默认样式和强调样式（悬浮时样式）：
+                normal: {
+                    areaStyle: {
+                        type: 'default'
+                    }
+                }
+            },
+            data: [{
+                value: [],      //外部加载，也可以通过ajax去加载外部数据。
+                name: ''
+            }]
+        }]
+    };
+    $(function () {
+        option.series[0].data[0].value = [12, 32, 34, 53, 53, 65];  // 加载数据到data中
+        option.series[0].data[0].name = 'ESOP系统';
+        var myChart = echarts.init(document.getElementById('main'));
+        myChart.setOption(option, true);   //为echarts对象加载数据
+    });
+</script>
+</html>
