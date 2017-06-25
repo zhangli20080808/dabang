@@ -1,0 +1,51 @@
+body{background: #ccc}
+.db_choose{list-style: none;}
+.db_choose li{float: left; width: 30%;background: red}
+
+.container div.tab {display: none;}
+.db_container{margin: 0 auto;width: 92%;font-size: 0;}
+.db_container .db_view{font-size: 14px;background: #fff;}
+.db_container .db_view .db_time,.db_container .db_view .db_score{height: 50px;line-height: 50px;}
+.db_container .db_view .db_time .db_left{float: left;padding-left: 20px;}
+.db_container .db_view .db_time .db_right{float: right;padding-right: 20px;}
+.db_container .db_view .db_record{width:495px; height:250px;margin: 10px auto}
+.db_container .db_view .db_score .score_left{float: left;color:blue;padding-left: 20px;display: flex;width: 180px;}
+.db_container .db_view .db_score .score_left .score_item,.db_container .db_view .db_score .rank_right .score_item{flex: 1;}
+.db_container .db_view .db_score .score_left .score_item .img,.db_container .db_view .db_score .rank_right .score_item .img{width: 20px;height: 20px;display: inline-block;vertical-align: text-bottom;}
+.db_container .db_view .db_score .score_left span:nth-child(2){margin-left: 8px;}
+.db_container .db_view .db_score .score_left .score_item .num{font-size: 20px;margin-left: 6px;}
+.db_container .db_view .db_score .rank_right{float: right;color:blue;padding-left: 20px;display: flex;width: 180px;}
+.db_container .db_view .db_score .rank_right span:nth-child(2){margin-left: 8px;}
+.db_container .db_view .db_score .rank_right .score_item .num{font-size: 20px;margin-left: 10px;}
+
+.db_container .db_honer{height:200px; font-size: 14px;margin-top: 15px;background: #fff;padding: 20px}
+
+.db_container .db_honer .db_history{position: relative}
+.db_container .db_honer .db_history .db_tab {
+    height: 20px;
+    margin: 0;
+    padding: 0;
+    display: block;
+    width: 96px;
+    position: absolute;
+    border-radius: 20px;
+    top: 6px;
+    right: 2px;
+    list-style: none;
+    border: 1px solid blue;
+    color: blue;
+}
+.db_container .db_honer .db_history .db_tab li{float:left;line-height: 20px;width: 50%;text-align: center;border-radius: 20px;  }
+.db_container .db_honer .db_history .db_tab li.now{color:#fff;background: blue}
+.db_container .db_honer .db_history .list {}
+.db_container .db_honer .db_history .list .content{display: none}
+.db_container .db_honer .db_history .list .content .list_text{font-size: 14px;}
+.db_container .db_honer .db_history .list .content .icon{font-size: 14px;margin-top: 40px;background: red;}
+.db_container .db_honer .db_history .list .content .icon li{float: left;width: 20%;text-align: center;list-style: none;height: 110px;margin-left: 10px;margin-right: 10px;}
+.db_container .db_honer .db_history .list .content .icon li.icon_1{background: url("../slide-2.jpeg")no-repeat;background-size: 260px 350px;background-position: -20px;}
+.db_container .db_honer .db_history .list .content .icon li.icon_2{background: url("../slide-2.jpeg")no-repeat;background-size: 260px 350px;background-position: -20px;}
+.db_container .db_honer .db_history .list .content .icon li.icon_3{background: url("../slide-2.jpeg")no-repeat;background-size: 260px 350px;background-position: -20px;}
+.db_container .db_honer .db_history .list .content .icon li.icon_4{background: url("../slide-2.jpeg")no-repeat;background-size: 260px 350px;background-position: -20px;}
+/*彩图*/
+.db_container .db_honer .db_history .list .content .icon li.icon_11{background: url(../img11.png)no-repeat;background-size: 260px 350px;background-position: -20px;}
+
